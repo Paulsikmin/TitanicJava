@@ -1,5 +1,6 @@
 package com.kh.day03.array.exercise;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class Exercise_Array1 {
@@ -79,6 +80,77 @@ public class Exercise_Array1 {
 		// 로또 번호 자동 생성기 프로그램, 중복 없이 추출하기
 		// 단, 결과는 오름차순으로 정렬
 		// 로또 번호는 6개. 로또 번호의 범위는 1 ~ 45
+		int [] lottoNums = new int[6];
+		Random rand = new Random();
+		// rand.nextInt(10) -> 0부터 9까지
+		// 1 부터 45까지 -> ??
+		// 0 부터 44까지 => rand.nextInt(45)+1
+		
+		// 22 16 22 45 6 29 
+		// 22 1 39 14 14 19
+		// 0  1 2  3  4  5
+//		int count = 1;
+//		int check = 1;
+		// 중복없이 1 ~ 45 사이의 랜덤한 수를 6개 뽑는 것
+		for(int i = 0; i < 6; i++) {
+			lottoNums[i] = rand.nextInt(45)+1;
+			for(int e = 0; e < i; e++) {
+				if(lottoNums[i]==lottoNums[e]) {
+					//다시 뽑아야지!!
+					i--;
+					break;
+				}
+			}
+//			count++;
+//			check++;
+//			if(lottoNums[1]==lottoNums[0]) {
+//				//다시 뽑아야지!!
+//			}
+//			//============================= 1
+//			if(lottoNums[2]==lottoNums[1]) {
+//				//다시 뽑아야지!!
+//			}
+//			if(lottoNums[2]==lottoNums[0]) {
+//				//다시 뽑아야지!!
+//			}
+//			//============================= 2
+//			if(lottoNums[3]==lottoNums[2]) {
+//				//다시 뽑아야지!!
+//			}
+//			if(lottoNums[3]==lottoNums[1]) {
+//				//다시 뽑아야지!!
+//			}
+//			if(lottoNums[3]==lottoNums[0]) {
+//				//다시 뽑아야지!!
+//			}
+//			//============================= 3
+		}
+
+		// 버블정렬 해보기!
+		// for의 변수가 증가하기만 하면됨 그래서 쉬움!!
+		// 단, 안에 있는 for문의 조건식의 최대값은 감소(-i)해야함!!
+		for(int i = 0; i < lottoNums.length-1; i++) {
+			for(int j = 0; j < (lottoNums.length-1)-i; j++) {
+				// 왼쪽이 크면 자리 바꾸기!!
+				if(lottoNums[j] > lottoNums[j+1]) {
+					int tmp = lottoNums[j];	// 왼쪽에 있는 값이 지워지기 전에 킵해 놓음
+					lottoNums[j] = lottoNums[j+1]; // 오른쪽에 있는 놈을 왼쪽에 대입함.
+					lottoNums[j+1] = tmp;	// 킵해놓은 것을 오른쪽에 대입함.
+				}
+			}
+		}
+		
+//		lottoNums[0] = rand.nextInt(45)+1;
+//		lottoNums[1] = rand.nextInt(45)+1;
+//		lottoNums[2] = rand.nextInt(45)+1;
+//		lottoNums[3] = rand.nextInt(45)+1;
+//		lottoNums[4] = rand.nextInt(45)+1;
+//		lottoNums[5] = rand.nextInt(45)+1;
+		
+		// 배열 출력하기
+		for(int i = 0; i < lottoNums.length; i++) {
+			System.out.print(lottoNums[i]+" ");
+		}
 	}
 	
 	
