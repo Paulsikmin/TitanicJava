@@ -7,8 +7,7 @@ import java.net.Socket;
 import java.net.UnknownHostException;
 import java.util.Scanner;
 
-public class ClientServer {
-
+public class ChattingClient {
 	public static void main(String[] args) {
 		String address = "192.168.60.227";
 		int port = 7777;
@@ -50,5 +49,4 @@ public class ClientServer {
 			e.printStackTrace();
 		}
 	}
-
 }
