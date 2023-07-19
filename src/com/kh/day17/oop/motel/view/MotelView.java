@@ -35,26 +35,16 @@ public class MotelView {
 		}
 	}
 	
-	public void roomCheckin(Boolean roomState, int roomNo) {
-		if(!roomState) 
+	public void roomCheckin(Boolean changeYn, int roomNo) throws Exception {
+		if(changeYn) 
 			System.out.println(roomNo + "번 방에 입실하셨습니다.");
 		else 
 			System.out.println(roomNo + "번방은 현재 손님이 있습니다.");
-		try {
-			Thread.sleep(250);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
 	}
-	public void roomCheckOut(Boolean roomState, int roomNo) {
-		if(roomState) 
+	public void roomCheckOut(Boolean changeYn, int roomNo) throws Exception {
+		if(changeYn) 
 			System.out.println(roomNo + "번 방에 퇴실하셨습니다.");
 		else 
 			System.out.println(roomNo + "번방은 현재 빈 방입니다.");
-		try {
-			Thread.sleep(250);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
 	}
 }

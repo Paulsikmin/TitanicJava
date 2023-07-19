@@ -21,19 +21,21 @@ public class MotelController {
 		return rList;
 	}
 	
-	public Boolean checkRoomState(int chosenRoom) {
-		return rList.get(chosenRoom-1);
-	}
-	
-	public Boolean checkIn(Boolean room, int roomNo) {
-		if(!room) 
+	public Boolean checkIn(int roomNo) {
+		Boolean flag = false;
+		if(!rList.get(roomNo-1)) {
 			rList.set(roomNo-1, true);
-		return room;
+			return !flag;
+		}
+		return flag;
 	}
 	
-	public Boolean checkOut(Boolean room, int chosenRoom) {
-		if(room)
+	public Boolean checkOut(int chosenRoom) {
+		Boolean flag = false;
+		if(rList.get(chosenRoom-1)) {
 			rList.set(chosenRoom-1, false);
-		return room;
+			return !flag;
+		}
+		return flag;
 	}
 }
