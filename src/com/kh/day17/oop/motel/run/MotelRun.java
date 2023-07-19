@@ -22,14 +22,18 @@ public class MotelRun {
 			switch(choice) {
 			case 1 : 
 				chosenRoom = view.inputRoomNubmer("입실");
-				changeYn = controller.checkIn(chosenRoom);
-				view.roomCheckin(changeYn, chosenRoom);
+				if(chosenRoom != -1) {
+					changeYn = controller.checkIn(chosenRoom);
+					view.roomCheckin(changeYn, chosenRoom);
+				}
 				Thread.sleep(500);
 				break;
 			case 2 : 
 				chosenRoom = view.inputRoomNubmer("퇴실");
-				changeYn = controller.checkOut(chosenRoom);
-				view.roomCheckOut(changeYn, chosenRoom);
+				if(chosenRoom != -1) {
+					changeYn = controller.checkOut(chosenRoom);
+					view.roomCheckOut(changeYn, chosenRoom);
+				}
 				Thread.sleep(500);	
 				break;
 			case 3 : 

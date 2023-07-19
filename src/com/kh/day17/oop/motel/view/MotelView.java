@@ -18,9 +18,9 @@ public class MotelView {
 		Scanner sc = new Scanner(System.in);
 		System.out.print("몇 번방에 "+category+"하시겠습니까? ");
 		int roomNo = sc.nextInt();
-		if(roomNo < 0 && roomNo > 10) {
+		if(roomNo < 0 || roomNo > 10) {
 			System.out.println("1번 방부터 10번방까지 준비되어 있습니다.");
-			return 1;
+			return -1;
 		}else {
 			return roomNo;
 		}
